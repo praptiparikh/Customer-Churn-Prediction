@@ -1,11 +1,43 @@
-# Customer-Churn-Prediction-Project
-This project analyzes the Customer Churn dataset to identify factors influencing customer loss. The system predicts churn and highlights key drivers like tenure, contract type, and charges.
-This project focuses on analyzing customer behavior and predicting churn using different machine learning techniques. The dataset used is the popular Customer Churn Dataset, which contains 7,043 customer records with 21 features related to demographics, services used, billing, and contract information.
+# Customer Churn Prediction Analysis
+Predicted customer churn for 7,043 telecom customers using Logistic Regression and Random Forest (80% accuracy, 0.84 ROC-AUC); identified key churn drivers through EDA and feature importance analysis.
 
-The primary objective of the project is to:
+## Overview
+This project analyzes customer churn behavior for a telecom company using the Telco Customer Churn dataset. It covers data cleaning, feature engineering, exploratory data analysis, and builds two classification models to predict which customers are likely to churn.
 
-Identify key factors causing customer churn
+## Business Questions Answered
+- What percentage of customers are churning?
+- Does tenure (how long a customer stays) affect churn likelihood?
+- Do customers with higher monthly charges churn more?
+- Which features are the strongest predictors of churn?
+- Which model — Logistic Regression or Random Forest — performs better?
 
-Build predictive models to estimate whether a customer will churn
+## Dataset
+- Source  : Telco Customer Churn Dataset (Kaggle)
+- Records : 7,043 customers
+- Churn Rate: 26.5% (1,869 churned customers)
 
-Provide insights that help businesses reduce churn
+## Tech Stack
+- Python, Pandas, NumPy
+- Matplotlib, Seaborn
+- Scikit-learn (Logistic Regression, Random Forest)
+- Jupyter Notebook
+
+## Process
+1. Cleaned TotalCharges column and handled missing values
+2. Removed non-predictive customerID column
+3. Created tenure_group feature (0-12, 13-24, 25-48, 49-60, 60+ months)
+4. Replaced "No internet service" labels with "No" for consistency
+5. Encoded binary columns with Label Encoding, multi-category columns with One-Hot Encoding
+6. Split data 80/20 with stratified sampling
+
+## Results
+|        Model        | Accuracy | ROC-AUC |
+|---------------------|----------|---------|
+| Logistic Regression |   80.1%  |  0.843  |
+| Random Forest       |   78.9%  |  0.826  |
+
+## Key Findings
+- Customers with shorter tenure churn significantly more
+- Higher monthly charges correlate with higher churn
+- Logistic Regression slightly outperformed Random Forest on this dataset
+- Top predictive features identified via Random Forest feature importance analysis
